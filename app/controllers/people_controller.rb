@@ -20,37 +20,33 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
 
-      if @person.save
-        format.html { redirect_to @person, notice: "Person was successfully created." }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @person.save
+      redirect_to @person, notice: "Person was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-      if @person.update(person_params)
-        format.html { redirect_to @person, notice: "Person was successfully updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @person.update(person_params)
+      redirect_to @person, notice: "Person was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @person.destroy
-      format.html { redirect_to people_url, notice: "Person was successfully destroyed." }
-    end
+    redirect_to people_url, notice: "Person was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_person
-      @person = Person.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def person_params
-      params.require(:person).permit(:name, :school, :age)
-    end
+  def set_person
+    @person = Person.find(params[:id])
+  end
+
+  def person_params
+    params.require(:person).permit(:name, :school, :age)
+  end
 end
