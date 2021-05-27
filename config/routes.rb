@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get '/don', to: 'pages#don'
   get '/jedi', to: 'pages#jedi'
   get '/raymond', to: 'pages#raymond'
+
+  get '/players', to: 'pages#players'
 end

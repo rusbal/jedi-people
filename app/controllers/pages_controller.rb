@@ -7,4 +7,8 @@ class PagesController < ApplicationController
 
   def raymond
   end
+
+  def players
+    @players = Person.all
+  end
 end

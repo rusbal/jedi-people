@@ -1,0 +1,27 @@
+<h1>List of Players</h1>
+
+<ul>
+  <% @players.each do |player| %>
+    <li>
+      <h4><%= player.name %></h4>
+
+      <% if player.achievements.any? %>
+
+        <ol>
+          <% player.achievements.each do |ach| %>
+            <li>
+              <ul>
+                <li><%= ach.name %></li>
+                <li><%= ach.year %></li>
+              </ul>
+            </li>
+          <% end %>
+        </ol>
+
+      <% else %>
+        <div class="no-ach">No achievements.</div>
+      <% end %>
+
+    </li>
+  <% end %>
+</ul>

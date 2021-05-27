@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: %i[ show edit update destroy ]
+  layout "ray123"
 
   def index
     @people = Person.all

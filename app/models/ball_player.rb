@@ -1,0 +1,2 @@
+class BallPlayer < Athlete
+end
